@@ -25,5 +25,11 @@ const GALLERY_PHOTOS = [
         category: "Personal",
         date: "B.Tech CSE (AIML)",
         image: "assets/images/profile.jpg"
+    },
+    {
+        title: "a random photo",  // Photo ka title
+        category: "College Life",          // Category
+        date: "2026",                      // Year/Date
+        image: "assets/images/gallery/event.jpg" // Aapki photo ka path
     }
 ];
