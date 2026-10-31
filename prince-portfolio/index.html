@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
@@ -12,6 +12,17 @@
         content="Prince Kumar — B.Tech CSE AIML student, software developer and AI/ML enthusiast building practical software solutions."
     >
     <meta name="author" content="Prince Kumar">
+
+    <!-- Color Scheme Meta & Anti-FOUC Theme Script -->
+    <meta name="color-scheme" content="light dark">
+    <script>
+        try {
+            const savedTheme = localStorage.getItem("portfolio_theme") || "dark";
+            document.documentElement.setAttribute("data-theme", savedTheme);
+            const metaTheme = document.querySelector('meta[name="color-scheme"]');
+            if (metaTheme) metaTheme.content = savedTheme;
+        } catch (e) {}
+    </script>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,11 +46,12 @@
                 Prince<span class="gold-dot">.</span>
             </a>
 
+            <!-- NAV LINKS: Focus before Skills -->
             <nav class="nav-links" id="navLinks">
                 <a href="#home" class="active">Home</a>
                 <a href="#about">About</a>
-                <a href="#skills">Skills</a>
                 <a href="#focus">Focus</a>
+                <a href="#skills">Skills</a>
                 <a href="#projects">Projects</a>
                 <a href="#gallery">Gallery</a>
                 <a href="#education">Education</a>
@@ -47,6 +59,18 @@
             </nav>
 
             <div class="nav-actions">
+                <!-- THEME SWITCHER (Dark & Light) -->
+                <div class="theme-switcher" id="themeSwitcher" role="group" aria-label="Color theme switcher">
+                    <button type="button" class="theme-btn active" id="darkThemeBtn" title="Switch to Dark Theme" aria-label="Dark theme">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                        <span>Dark</span>
+                    </button>
+                    <button type="button" class="theme-btn" id="lightThemeBtn" title="Switch to Light Theme" aria-label="Light theme">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                        <span>Light</span>
+                    </button>
+                </div>
+
                 <a href="#contact" class="nav-button">
                     <span>Let's Talk</span>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -111,8 +135,8 @@
                     <!-- HERO STATS ROW -->
                     <div class="hero-stats">
                         <div class="stat-card">
-                            <span class="stat-number">3+</span>
-                            <span class="stat-label">Full Stack & AI Projects</span>
+                            <span class="stat-number">2+</span>
+                            <span class="stat-label">Full-Stack Projects</span>
                         </div>
                         <div class="stat-divider"></div>
                         <div class="stat-card">
@@ -126,8 +150,13 @@
                         </div>
                     </div>
 
-                    <!-- SOCIAL LINKS -->
+                    <!-- SOCIAL LINKS (with X @Prince_240061) -->
                     <div class="social-links">
+                        <a href="https://x.com/Prince_240061" target="_blank" rel="noopener noreferrer" aria-label="X Profile (@Prince_240061)">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                            <span>X (Twitter)</span>
+                        </a>
+
                         <a href="https://github.com/princekumar0223" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                             <span>GitHub</span>
@@ -209,7 +238,7 @@
                         </p>
 
                         <p class="section-description about-second">
-                            My core toolkit spans Python, C/C++, Flask, relational databases, and modern frontend technologies. Whether it's crafting scalable web architectures, automating video editing pipelines with Whisper and OpenCV, or hosting production-ready cloud services, I thrive on continuous learning and turning concepts into deployed products.
+                            My core toolkit spans Python, C/C++, Flask, relational databases, and modern frontend technologies. Whether it's crafting scalable web architectures, automating video editing pipelines, or hosting production-ready cloud services, I thrive on continuous learning and turning concepts into deployed products.
                         </p>
                     </div>
 
@@ -242,7 +271,7 @@
             </div>
         </section>
 
-        <!-- ================= DEVELOPER FOCUS ================= -->
+        <!-- ================= DEVELOPER FOCUS (Now placed before Skills!) ================= -->
         <section id="focus" class="section focus-section">
             <div class="container">
                 <p class="section-label">DEVELOPER FOCUS</p>
@@ -266,7 +295,7 @@
                         <span class="focus-icon">02</span>
                         <h3>AI & Intelligent Automation</h3>
                         <p>
-                            Developing AI-powered workflows including smart link generation, automated video transcription, and computer vision pipelines to eliminate repetitive manual labor.
+                            Developing AI-powered workflows including smart link generation, automated video processing, and computer vision pipelines to eliminate repetitive manual labor.
                         </p>
                     </div>
 
@@ -289,7 +318,7 @@
             </div>
         </section>
 
-        <!-- ================= SKILLS ================= -->
+        <!-- ================= SKILLS (Now placed after Focus!) ================= -->
         <section id="skills" class="section">
             <div class="container">
                 <p class="section-label">TECHNICAL SKILLS</p>
@@ -393,14 +422,14 @@
                             <span>Git</span>
                             <span>GitHub</span>
                             <span>Render</span>
-                            <span>Linux CLI</span>
+                            <span>Vercel</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ================= PROJECTS ================= -->
+        <!-- ================= PROJECTS (Prince Mart & Relink AI only) ================= -->
         <section id="projects" class="section projects-section">
             <div class="container">
                 <p class="section-label">SELECTED PROJECTS</p>
@@ -651,90 +680,6 @@
                         </div>
                     </article>
 
-                    <!-- ================= PROJECT 03: AI SHORTS ================= -->
-                    <article class="project-feature">
-                        <div class="project-visual">
-                            <div class="project-window video-window">
-                                <div class="window-header">
-                                    <div class="window-dots">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                    </div>
-                                    <span class="window-title">AI Shorts Pipeline</span>
-                                    <span class="live-pill beta-pill">
-                                        <span class="live-dot orange"></span> In Dev
-                                    </span>
-                                </div>
-
-                                <div class="video-mock">
-                                    <div class="video-play">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                                    </div>
-
-                                    <div class="video-caption-preview">
-                                        <span>"AI automatically detecting high-engagement moments..."</span>
-                                    </div>
-
-                                    <div class="video-bars">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="project-info">
-                            <div class="project-meta">
-                                <span>03</span>
-                                <span>AI & COMPUTER VISION</span>
-                            </div>
-
-                            <h3>AI Shorts</h3>
-
-                            <p>
-                                An intelligent automated video processing pipeline that processes long-form videos to extract viral clips and highlights. Leverages OpenAI Whisper for speech transcription, OpenCV for face and motion detection, and FFmpeg for video cropping and vertical conversion.
-                            </p>
-
-                            <div class="project-features">
-                                <span>Speech-to-Text Transcription</span>
-                                <span>Smart Highlights Extraction</span>
-                                <span>Vertical Aspect Framing</span>
-                                <span>Automated Audio Normalization</span>
-                            </div>
-
-                            <div class="project-stack">
-                                <span>Python</span>
-                                <span>Whisper</span>
-                                <span>FFmpeg</span>
-                                <span>OpenCV</span>
-                                <span>AI/ML</span>
-                            </div>
-
-                            <div class="project-actions">
-                                <a
-                                    href="https://github.com/princekumar0223"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="project-action action-live"
-                                >
-                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                                    <span>View GitHub</span>
-                                </a>
-
-                                <a href="#contact" class="project-action">
-                                    <span>Project Info</span>
-                                    <span>→</span>
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
                 </div>
             </div>
         </section>
@@ -749,88 +694,22 @@
                             Captured <span>Moments.</span>
                         </h2>
                         <p class="section-description">
-                            A visual chronicle of tech events, college life, hackathons, and memorable achievements. Upload your own photos below to add them to the collection!
+                            A visual chronicle of tech events, campus memories, and personal milestones.
                         </p>
                     </div>
 
-                    <div class="gallery-upload-trigger">
-                        <button type="button" class="btn btn-primary" id="toggleUploadBtn">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-                            <span>Upload Photo</span>
-                        </button>
+                    <!-- Category filter pills -->
+                    <div class="gallery-filters" id="galleryFilters">
+                        <button type="button" class="filter-btn active" data-filter="all">All Photos</button>
+                        <button type="button" class="filter-btn" data-filter="Personal">Personal</button>
+                        <button type="button" class="filter-btn" data-filter="College Life">College Life</button>
+                        <button type="button" class="filter-btn" data-filter="Tech & Hackathons">Tech & Projects</button>
                     </div>
                 </div>
 
-                <!-- UPLOAD PANEL (Collapsible) -->
-                <div class="gallery-upload-panel" id="uploadPanel">
-                    <div class="upload-panel-card">
-                        <div class="upload-panel-header">
-                            <h3>Upload a New Photo</h3>
-                            <button type="button" class="close-upload-btn" id="closeUploadBtn" aria-label="Close upload panel">✕</button>
-                        </div>
-
-                        <div class="upload-dropzone" id="uploadDropzone">
-                            <input type="file" id="galleryFileInput" accept="image/png, image/jpeg, image/webp, image/gif" style="display: none;">
-                            <div class="dropzone-content" id="dropzonePrompt">
-                                <div class="dropzone-icon">
-                                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-                                </div>
-                                <p class="dropzone-title">Click to select photo or drag & drop here</p>
-                                <span class="dropzone-hint">Supports JPG, PNG, WEBP, GIF (Saved securely in your browser)</span>
-                            </div>
-
-                            <!-- Selected Preview -->
-                            <div class="dropzone-preview" id="dropzonePreview" style="display: none;">
-                                <img id="selectedImagePreview" alt="Selected Preview">
-                                <button type="button" class="remove-selected-btn" id="removeSelectedBtn" title="Change photo">✕</button>
-                            </div>
-                        </div>
-
-                        <div class="upload-inputs">
-                            <div class="input-group">
-                                <label for="photoCaptionInput">Caption / Title</label>
-                                <input
-                                    type="text"
-                                    id="photoCaptionInput"
-                                    placeholder="e.g., College Hackathon, Campus Fest, Tech Project Demo"
-                                    maxlength="80"
-                                >
-                            </div>
-
-                            <div class="input-group">
-                                <label for="photoTagSelect">Category Tag</label>
-                                <select id="photoTagSelect">
-                                    <option value="Moments">Moments</option>
-                                    <option value="College Life">College Life</option>
-                                    <option value="Tech & Hackathons">Tech & Hackathons</option>
-                                    <option value="Personal">Personal</option>
-                                </select>
-                            </div>
-
-                            <div class="upload-action-row">
-                                <button type="button" class="btn btn-primary" id="confirmUploadBtn">
-                                    <span>Add to Gallery</span>
-                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                                </button>
-                                <button type="button" class="btn btn-secondary" id="cancelUploadBtn">
-                                    <span>Cancel</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- GALLERY FILTERS -->
-                <div class="gallery-filters" id="galleryFilters">
-                    <button type="button" class="filter-btn active" data-filter="all">All Photos (<span id="countAll">0</span>)</button>
-                    <button type="button" class="filter-btn" data-filter="uploaded">My Uploads (<span id="countUploaded">0</span>)</button>
-                    <button type="button" class="filter-btn" data-filter="college">College Life</button>
-                    <button type="button" class="filter-btn" data-filter="tech">Tech & Projects</button>
-                </div>
-
-                <!-- GALLERY GRID -->
+                <!-- GALLERY GRID (Rendered from gallery-data.js) -->
                 <div class="gallery-grid" id="galleryGrid">
-                    <!-- Cards will be populated dynamically from script.js -->
+                    <!-- Populated dynamically via script.js from gallery-data.js -->
                 </div>
             </div>
         </section>
@@ -909,6 +788,11 @@
                 </div>
 
                 <div class="contact-buttons">
+                    <a href="https://x.com/Prince_240061" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" title="Follow Prince on X">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        <span>Follow on X</span>
+                    </a>
+
                     <a href="mailto:princekumarsing68@gmail.com" class="btn btn-primary">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                         <span>Send an Email</span>
@@ -945,6 +829,8 @@
     <!-- TOAST NOTIFICATION CONTAINER -->
     <div id="toastContainer" class="toast-container" aria-live="polite"></div>
 
+    <!-- GALLERY DATA & INTERACTIVE SCRIPT -->
+    <script src="gallery-data.js"></script>
     <script src="script.js"></script>
 
 </body>
