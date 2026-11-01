@@ -1,6 +1,6 @@
 /* =========================================================
    PRINCE KUMAR PORTFOLIO — INTERACTIVE JAVASCRIPT
-   Theme Switcher (Dark & Light), Gallery Loader from gallery-data.js,
+   Theme Switcher (Dark & Light), Gallery & Certificates Loader,
    Native Dialog Lightbox, Copy Email, & Smooth UX
    ========================================================= */
 
@@ -191,23 +191,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* =========================================================
-       PHOTO GALLERY SYSTEM (Loaded from gallery-data.js)
+       PHOTO GALLERY & CERTIFICATES SYSTEM
        ========================================================= */
 
-    // Fallback if gallery-data.js is not loaded
     const photosList = (typeof GALLERY_PHOTOS !== "undefined" && Array.isArray(GALLERY_PHOTOS))
         ? GALLERY_PHOTOS
-        : [
-            {
-                title: "Prince Kumar — Developer",
-                category: "Personal",
-                date: "2024–2028",
-                image: "assets/images/profile.jpg"
-            }
-        ];
+        : [];
 
     const galleryGrid = document.getElementById("galleryGrid");
     const filterButtons = document.querySelectorAll(".filter-btn");
+    const countAllEl = document.getElementById("countAll");
+    const countCertEl = document.getElementById("countCert");
+
+    // Update Counts
+    if (countAllEl) countAllEl.textContent = photosList.length;
+    if (countCertEl) {
+        const certs = photosList.filter(p => p.category === "Certificates");
+        countCertEl.textContent = certs.length;
+    }
 
     // Lightbox Dialog Elements
     const galleryModal = document.getElementById("galleryModal");
@@ -232,30 +233,29 @@ document.addEventListener("DOMContentLoaded", () => {
         if (filtered.length === 0) {
             galleryGrid.innerHTML = `
                 <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--text-muted);">
-                    <div style="font-size: 2.2rem; margin-bottom: 12px;">📷</div>
-                    <p style="font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 6px;">No photos found in this category.</p>
-                    <p style="font-size: 0.88rem;">Add photos to <code>assets/images/gallery/</code> and list them in <code>gallery-data.js</code>.</p>
+                    <div style="font-size: 2.2rem; margin-bottom: 12px;">📜</div>
+                    <p style="font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 6px;">No items found in this category.</p>
                 </div>
             `;
             return;
         }
 
-        filtered.forEach((photo) => {
+        filtered.forEach((item) => {
             const card = document.createElement("div");
             card.className = "gallery-card";
 
             card.innerHTML = `
-                <img src="${photo.image}" alt="${photo.title}" class="gallery-card-img" loading="lazy">
+                <img src="${item.image}" alt="${item.title}" class="gallery-card-img" loading="lazy">
                 <div class="gallery-card-overlay">
                     <div class="gallery-card-top">
-                        <span class="gallery-tag-badge">${photo.category || "Moment"}</span>
+                        <span class="gallery-tag-badge">${item.category || "Certificate"}</span>
                     </div>
                     <div class="gallery-card-bottom">
                         <div>
-                            <span class="gallery-caption-text">${photo.title}</span>
-                            <span class="gallery-date-text">${photo.date || ""}</span>
+                            <span class="gallery-caption-text">${item.title}</span>
+                            <span class="gallery-date-text">${item.date || ""}</span>
                         </div>
-                        <div class="gallery-zoom-icon" title="View Fullscreen">
+                        <div class="gallery-zoom-icon" title="View Full Certificate">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
                         </div>
                     </div>
@@ -264,7 +264,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Card click -> Open Lightbox
             card.addEventListener("click", () => {
-                openLightbox(photo);
+                openLightbox(item);
             });
 
             galleryGrid.appendChild(card);
@@ -272,13 +272,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Open Lightbox with Modern <dialog>
-    function openLightbox(photo) {
+    function openLightbox(item) {
         if (!galleryModal) return;
-        modalImg.src = photo.image;
-        modalCaption.textContent = photo.title;
-        modalMeta.textContent = `${photo.category} • ${photo.date}`;
-        modalDownloadBtn.href = photo.image;
-        modalDownloadBtn.download = `${photo.title.toLowerCase().replace(/[^a-z0-9]/g, '-')}.jpg`;
+        modalImg.src = item.image;
+        modalCaption.textContent = item.title;
+        modalMeta.textContent = `${item.category} • ${item.date}`;
+        modalDownloadBtn.href = item.image;
+        modalDownloadBtn.download = `${item.title.toLowerCase().replace(/[^a-z0-9]/g, '-')}.jpg`;
 
         if (typeof galleryModal.showModal === "function") {
             galleryModal.showModal();

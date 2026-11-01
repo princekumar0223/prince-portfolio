@@ -46,15 +46,15 @@
                 Prince<span class="gold-dot">.</span>
             </a>
 
-            <!-- NAV LINKS: Focus before Skills -->
+            <!-- NAV LINKS: Gallery right before Contact -->
             <nav class="nav-links" id="navLinks">
                 <a href="#home" class="active">Home</a>
                 <a href="#about">About</a>
                 <a href="#focus">Focus</a>
                 <a href="#skills">Skills</a>
                 <a href="#projects">Projects</a>
-                <a href="#gallery">Gallery</a>
                 <a href="#education">Education</a>
+                <a href="#gallery">Gallery</a>
                 <a href="#contact">Contact</a>
             </nav>
 
@@ -123,7 +123,7 @@
                         </a>
 
                         <a href="#gallery" class="btn btn-secondary">
-                            <span>View Gallery</span>
+                            <span>View Certificates & Gallery</span>
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
                         </a>
 
@@ -140,8 +140,8 @@
                         </div>
                         <div class="stat-divider"></div>
                         <div class="stat-card">
-                            <span class="stat-number">10+</span>
-                            <span class="stat-label">Technologies & Tools</span>
+                            <span class="stat-number">12+</span>
+                            <span class="stat-label">Certifications</span>
                         </div>
                         <div class="stat-divider"></div>
                         <div class="stat-card">
@@ -238,7 +238,7 @@
                         </p>
 
                         <p class="section-description about-second">
-                            My core toolkit spans Python, C/C++, Flask, relational databases, and modern frontend technologies. Whether it's crafting scalable web architectures, automating video editing pipelines, or hosting production-ready cloud services, I thrive on continuous learning and turning concepts into deployed products.
+                            My core toolkit spans Python, C/C++, Flask, relational databases, and modern frontend technologies. Whether it's crafting scalable web architectures, training machine learning models, or hosting production-ready cloud services, I thrive on continuous learning and turning concepts into deployed products.
                         </p>
                     </div>
 
@@ -271,7 +271,7 @@
             </div>
         </section>
 
-        <!-- ================= DEVELOPER FOCUS (Now placed before Skills!) ================= -->
+        <!-- ================= DEVELOPER FOCUS ================= -->
         <section id="focus" class="section focus-section">
             <div class="container">
                 <p class="section-label">DEVELOPER FOCUS</p>
@@ -295,7 +295,7 @@
                         <span class="focus-icon">02</span>
                         <h3>AI & Intelligent Automation</h3>
                         <p>
-                            Developing AI-powered workflows including smart link generation, automated video processing, and computer vision pipelines to eliminate repetitive manual labor.
+                            Developing AI-powered workflows including smart link generation, automated data processing, and machine learning pipelines to eliminate repetitive manual labor.
                         </p>
                     </div>
 
@@ -318,7 +318,7 @@
             </div>
         </section>
 
-        <!-- ================= SKILLS (Now placed after Focus!) ================= -->
+        <!-- ================= SKILLS ================= -->
         <section id="skills" class="section">
             <div class="container">
                 <p class="section-label">TECHNICAL SKILLS</p>
@@ -417,7 +417,7 @@
                             <span class="skill-symbol">Dev</span>
                         </div>
                         <h3>Git & Deployment</h3>
-                        <p>Version control workflows, collaborative Git, GitHub repositories, and continuous deployment on Render Cloud.</p>
+                        <p>Version control workflows, collaborative Git, GitHub repositories, and continuous deployment on Render Cloud & Vercel.</p>
                         <div class="skill-tech">
                             <span>Git</span>
                             <span>GitHub</span>
@@ -429,7 +429,7 @@
             </div>
         </section>
 
-        <!-- ================= PROJECTS (Prince Mart & Relink AI only) ================= -->
+        <!-- ================= PROJECTS ================= -->
         <section id="projects" class="section projects-section">
             <div class="container">
                 <p class="section-label">SELECTED PROJECTS</p>
@@ -684,57 +684,6 @@
             </div>
         </section>
 
-        <!-- ================= GALLERY ================= -->
-        <section id="gallery" class="section gallery-section">
-            <div class="container">
-                <div class="gallery-header-row">
-                    <div>
-                        <p class="section-label">PHOTO GALLERY</p>
-                        <h2 class="section-title">
-                            Captured <span>Moments.</span>
-                        </h2>
-                        <p class="section-description">
-                            A visual chronicle of tech events, campus memories, and personal milestones.
-                        </p>
-                    </div>
-
-                    <!-- Category filter pills -->
-                    <div class="gallery-filters" id="galleryFilters">
-                        <button type="button" class="filter-btn active" data-filter="all">All Photos</button>
-                        <button type="button" class="filter-btn" data-filter="Personal">Personal</button>
-                        <button type="button" class="filter-btn" data-filter="College Life">College Life</button>
-                        <button type="button" class="filter-btn" data-filter="Tech & Hackathons">Tech & Projects</button>
-                    </div>
-                </div>
-
-                <!-- GALLERY GRID (Rendered from gallery-data.js) -->
-                <div class="gallery-grid" id="galleryGrid">
-                    <!-- Populated dynamically via script.js from gallery-data.js -->
-                </div>
-            </div>
-        </section>
-
-        <!-- LIGHTBOX MODAL (Native Dialog adhering to Modern Web Guidance) -->
-        <dialog id="galleryModal" class="gallery-modal" closedby="any" aria-label="Photo Lightbox">
-            <div class="modal-card">
-                <button type="button" class="modal-close" id="modalCloseBtn" aria-label="Close dialog">✕</button>
-                <div class="modal-img-container">
-                    <img id="modalImg" src="" alt="Full size photo preview">
-                </div>
-                <div class="modal-footer">
-                    <div>
-                        <h4 id="modalCaption">Memory Caption</h4>
-                        <span id="modalMeta" class="modal-meta">Category • Date</span>
-                    </div>
-                    <div class="modal-actions">
-                        <a id="modalDownloadBtn" href="" download="prince-gallery-photo.jpg" class="modal-action-btn" title="Download Photo">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </dialog>
-
         <!-- ================= EDUCATION ================= -->
         <section id="education" class="section">
             <div class="container">
@@ -763,6 +712,58 @@
                 </div>
             </div>
         </section>
+
+        <!-- ================= GALLERY & CERTIFICATES (Placed right above Contact!) ================= -->
+        <section id="gallery" class="section gallery-section">
+            <div class="container">
+                <div class="gallery-header-row">
+                    <div>
+                        <p class="section-label">CREDENTIALS & MOMENTS</p>
+                        <h2 class="section-title">
+                            Certificates & <span>Moments.</span>
+                        </h2>
+                        <p class="section-description">
+                            A verified showcase of professional certifications from Google, AWS, TCS, MeitY, along with personal and campus milestones.
+                        </p>
+                    </div>
+
+                    <!-- Category filter pills with Certificates as prominent filter -->
+                    <div class="gallery-filters" id="galleryFilters">
+                        <button type="button" class="filter-btn active" data-filter="all">All Items (<span id="countAll">0</span>)</button>
+                        <button type="button" class="filter-btn" data-filter="Certificates">Certificates (<span id="countCert">0</span>)</button>
+                        <button type="button" class="filter-btn" data-filter="Personal">Personal</button>
+                        <button type="button" class="filter-btn" data-filter="College Life">College Life</button>
+                        <button type="button" class="filter-btn" data-filter="Tech & Hackathons">Tech & Projects</button>
+                    </div>
+                </div>
+
+                <!-- GALLERY GRID (Rendered from gallery-data.js) -->
+                <div class="gallery-grid" id="galleryGrid">
+                    <!-- Populated dynamically via script.js from gallery-data.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- LIGHTBOX MODAL (Native Dialog adhering to Modern Web Guidance) -->
+        <dialog id="galleryModal" class="gallery-modal" closedby="any" aria-label="Photo Lightbox">
+            <div class="modal-card">
+                <button type="button" class="modal-close" id="modalCloseBtn" aria-label="Close dialog">✕</button>
+                <div class="modal-img-container">
+                    <img id="modalImg" src="" alt="Full size photo preview">
+                </div>
+                <div class="modal-footer">
+                    <div>
+                        <h4 id="modalCaption">Memory Caption</h4>
+                        <span id="modalMeta" class="modal-meta">Category • Date</span>
+                    </div>
+                    <div class="modal-actions">
+                        <a id="modalDownloadBtn" href="" download="prince-certificate-photo.jpg" class="modal-action-btn" title="Download Image">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </dialog>
 
         <!-- ================= CONTACT ================= -->
         <section id="contact" class="section contact-section">
