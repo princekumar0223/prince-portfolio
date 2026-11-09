@@ -1258,6 +1258,206 @@ img {
     border-radius: 4px;
 }
 
+/* ================= VAKTA AI MOCKUP STYLING ================= */
+.vakta-mock {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background: radial-gradient(circle at top left, var(--gold-soft), transparent 65%);
+}
+
+.vakta-header-mock {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.vakta-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--white);
+    letter-spacing: 0.5px;
+}
+
+.vakta-icon {
+    font-size: 1.1rem;
+}
+
+.vakta-rec-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 4px 10px;
+    background: rgba(235, 77, 75, 0.12);
+    border: 1px solid rgba(235, 77, 75, 0.35);
+    border-radius: var(--radius-full);
+    color: #ff6b6b;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+}
+
+.vakta-rec-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #ff4757;
+    box-shadow: 0 0 8px #ff4757;
+    animation: vaktaPulse 1.8s infinite ease-in-out;
+}
+
+@keyframes vaktaPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.vakta-question-card {
+    padding: 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.vakta-q-tag {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.vakta-timer {
+    color: var(--text-muted);
+    font-family: monospace;
+    font-weight: 600;
+    font-size: 0.75rem;
+}
+
+.vakta-q-text {
+    color: var(--text-main);
+    font-size: 0.88rem;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-bottom: 14px;
+}
+
+.vakta-audio-stream {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 12px;
+    background: var(--gold-soft);
+    border: 1px solid var(--border-gold);
+    border-radius: 8px;
+}
+
+.vakta-wave-bar {
+    width: 3px;
+    height: 14px;
+    background: var(--gold);
+    border-radius: 3px;
+    animation: waveBounce 1.2s ease-in-out infinite alternate;
+}
+
+.vakta-wave-bar:nth-child(1) { height: 8px; animation-delay: 0.1s; }
+.vakta-wave-bar:nth-child(2) { height: 16px; animation-delay: 0.3s; }
+.vakta-wave-bar:nth-child(3) { height: 22px; animation-delay: 0.2s; }
+.vakta-wave-bar:nth-child(4) { height: 12px; animation-delay: 0.4s; }
+.vakta-wave-bar:nth-child(5) { height: 18px; animation-delay: 0.15s; }
+.vakta-wave-bar:nth-child(6) { height: 24px; animation-delay: 0.35s; }
+.vakta-wave-bar:nth-child(7) { height: 14px; animation-delay: 0.25s; }
+.vakta-wave-bar:nth-child(8) { height: 9px; animation-delay: 0.05s; }
+
+@keyframes waveBounce {
+    0% { transform: scaleY(0.4); opacity: 0.6; }
+    100% { transform: scaleY(1.2); opacity: 1; }
+}
+
+.vakta-speaking-label {
+    margin-left: 10px;
+    font-size: 0.72rem;
+    color: var(--gold-light);
+    font-weight: 600;
+}
+
+.vakta-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.vakta-metric-card {
+    padding: 10px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.vakta-metric-val {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--white);
+    font-family: var(--font-heading);
+    margin-bottom: 2px;
+}
+
+.vakta-metric-title {
+    font-size: 0.66rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.vakta-feedback-pill {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 11px 14px;
+    background: rgba(46, 213, 115, 0.08);
+    border: 1px solid rgba(46, 213, 115, 0.25);
+    border-radius: 10px;
+}
+
+.vakta-feedback-icon {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    border-radius: 50%;
+    background: #2ed573;
+    color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 800;
+}
+
+.vakta-feedback-content {
+    font-size: 0.76rem;
+    line-height: 1.45;
+}
+
+.vakta-feedback-content strong {
+    color: #2ed573;
+    display: block;
+    margin-bottom: 2px;
+    font-size: 0.74rem;
+}
+
+.vakta-feedback-content span {
+    color: var(--text-secondary);
+}
+
 /* PROJECT DETAILS COLUMN */
 .project-meta {
     display: flex;
