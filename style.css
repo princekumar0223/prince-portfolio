@@ -140,23 +140,71 @@ body.light-theme .nav-button:hover {
 
 :root[data-theme="light"] .cyber-orbit-ring,
 body.light-theme .cyber-orbit-ring {
-    border-color: rgba(56, 189, 248, 0.45);
-    box-shadow: 0 0 20px rgba(56, 189, 248, 0.25);
-    opacity: 0.6;
+    border-color: #0284c7;
+    box-shadow: 0 0 25px rgba(14, 165, 233, 0.5), 0 0 50px rgba(14, 165, 233, 0.3);
+    opacity: 0.85;
+}
+
+:root[data-theme="light"] .cyber-orbit-ring::before,
+body.light-theme .cyber-orbit-ring::before {
+    border-color: rgba(14, 165, 233, 0.6);
+    box-shadow: 0 0 15px rgba(14, 165, 233, 0.35);
 }
 
 :root[data-theme="light"] .cyber-floating-icon,
 body.light-theme .cyber-floating-icon {
-    background: rgba(255, 255, 255, 0.92);
-    border-color: rgba(147, 197, 253, 0.6);
-    box-shadow: 0 8px 20px rgba(186, 230, 253, 0.4);
+    background: rgba(255, 255, 255, 0.94);
+    border-color: rgba(14, 165, 233, 0.4);
+    border-top-color: rgba(14, 165, 233, 0.8);
+    border-left-color: rgba(14, 165, 233, 0.7);
+    box-shadow: -6px 10px 25px rgba(14, 165, 233, 0.25), 0 0 15px rgba(14, 165, 233, 0.2);
 }
 
 :root[data-theme="light"] .cyber-pedestal-platform,
 body.light-theme .cyber-pedestal-platform {
-    background: radial-gradient(ellipse at center, rgba(224, 242, 254, 0.85) 0%, transparent 72%);
-    border-color: rgba(147, 197, 253, 0.5);
-    box-shadow: 0 0 25px rgba(186, 230, 253, 0.5);
+    background: radial-gradient(ellipse at center, rgba(14, 165, 233, 0.2) 0%, rgba(14, 165, 233, 0.05) 45%, transparent 75%);
+    border-color: #0284c7;
+    box-shadow: 0 0 35px rgba(14, 165, 233, 0.4), inset 0 0 20px rgba(14, 165, 233, 0.25);
+}
+
+:root[data-theme="light"] .cyber-pedestal-platform::before,
+body.light-theme .cyber-pedestal-platform::before {
+    border-color: rgba(14, 165, 233, 0.4);
+    box-shadow: 0 0 15px rgba(14, 165, 233, 0.25);
+}
+
+:root[data-theme="light"] .project-window,
+body.light-theme .project-window {
+    border-color: rgba(14, 165, 233, 0.4);
+    border-top-color: rgba(14, 165, 233, 0.85);
+    border-left-color: rgba(14, 165, 233, 0.7);
+    box-shadow:
+        -1px 1px 0px rgba(14, 165, 233, 0.4),
+        -2px 2px 0px rgba(14, 165, 233, 0.3),
+        -3px 3px 0px rgba(14, 165, 233, 0.25),
+        -4px 4px 0px rgba(14, 165, 233, 0.2),
+        -5px 5px 0px rgba(14, 165, 233, 0.15),
+        -12px 18px 35px rgba(14, 165, 233, 0.18),
+        -20px 30px 60px rgba(0, 0, 0, 0.12),
+        0 0 30px rgba(14, 165, 233, 0.2),
+        inset 0 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+:root[data-theme="light"] .project-feature.reverse .project-window,
+body.light-theme .project-feature.reverse .project-window {
+    border-color: rgba(14, 165, 233, 0.4);
+    border-top-color: rgba(14, 165, 233, 0.85);
+    border-right-color: rgba(14, 165, 233, 0.7);
+    box-shadow:
+        1px 1px 0px rgba(14, 165, 233, 0.4),
+        2px 2px 0px rgba(14, 165, 233, 0.3),
+        3px 3px 0px rgba(14, 165, 233, 0.25),
+        4px 4px 0px rgba(14, 165, 233, 0.2),
+        5px 5px 0px rgba(14, 165, 233, 0.15),
+        12px 18px 35px rgba(14, 165, 233, 0.18),
+        20px 30px 60px rgba(0, 0, 0, 0.12),
+        0 0 30px rgba(14, 165, 233, 0.2),
+        inset 0 1px 2px rgba(255, 255, 255, 0.6);
 }
 
 :root[data-theme="light"] .check-icon,
@@ -804,12 +852,27 @@ img {
     padding: 12px 18px;
     background: var(--bg-card);
     border: 1px solid var(--border-gold);
+    border-top: 2px solid rgba(0, 245, 196, 0.85);
+    border-left: 2px solid rgba(0, 245, 196, 0.75);
     border-radius: var(--radius-md);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.65), 0 0 20px var(--gold-glow);
+    box-shadow:
+        -8px 14px 32px rgba(0, 0, 0, 0.8),
+        0 0 24px var(--gold-glow),
+        inset 0 1px 2px rgba(255, 255, 255, 0.35);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
     z-index: 4;
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    transform-style: preserve-3d;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.floating-card:hover {
+    transform: scale3d(1.08, 1.08, 1.08) translateY(-4px) !important;
+    border-color: var(--gold);
+    box-shadow:
+        -10px 18px 40px rgba(0, 0, 0, 0.9),
+        0 0 35px var(--gold),
+        inset 0 1px 2px rgba(255, 255, 255, 0.5);
 }
 
 .floating-card:hover {
@@ -1168,88 +1231,223 @@ body.light-theme .p-filter-btn.active {
     color: #ffffff !important;
 }
 
-/* CYBER VISUAL CONTAINER & NEON ORBITS */
+/* CYBER VISUAL CONTAINER & 3D ISOMETRIC NEON STAGE */
 .project-visual {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 380px;
+    min-height: 440px;
+    perspective: 1200px;
+    transform-style: preserve-3d;
+    padding: 20px 10px;
 }
 
+/* 3D CYBER ORBIT RING (HALO WRAPPING AROUND TABLET) */
 .cyber-orbit-ring {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 108%;
-    height: 95px;
-    transform: translate(-50%, -50%) rotate(-12deg);
-    border: 2px solid var(--gold);
+    width: 122%;
+    height: 120px;
+    transform: translate(-50%, -50%) rotateX(66deg) rotateY(-14deg) rotateZ(16deg);
+    border: 3px solid var(--gold);
     border-radius: 50%;
-    box-shadow: 0 0 35px var(--gold-glow), inset 0 0 20px var(--gold-glow);
+    box-shadow:
+        0 0 25px var(--gold),
+        0 0 55px var(--gold-glow),
+        0 0 95px rgba(0, 245, 196, 0.35),
+        inset 0 0 30px var(--gold-glow);
     pointer-events: none;
-    z-index: 2;
-    opacity: 0.85;
-    animation: cyberOrbitPulse 4s ease-in-out infinite alternate;
+    z-index: 4;
+    opacity: 0.95;
+    animation: cyber3DOrbitPulse 4.5s ease-in-out infinite alternate;
 }
 
-@keyframes cyberOrbitPulse {
-    0% { transform: translate(-50%, -50%) rotate(-12deg) scale(0.97); opacity: 0.7; }
-    100% { transform: translate(-50%, -50%) rotate(-12deg) scale(1.03); opacity: 1; }
+.cyber-orbit-ring::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    right: -6px;
+    bottom: -6px;
+    border-radius: 50%;
+    border: 1.5px dashed rgba(0, 245, 196, 0.6);
+    box-shadow: 0 0 18px rgba(0, 245, 196, 0.4);
+    animation: cyberRingSpin 16s linear infinite;
 }
 
-/* FLOATING 3D TECH ICONS */
+.project-feature.reverse .cyber-orbit-ring {
+    transform: translate(-50%, -50%) rotateX(66deg) rotateY(14deg) rotateZ(-16deg);
+    animation-name: cyber3DOrbitPulseReverse;
+}
+
+@keyframes cyber3DOrbitPulse {
+    0% {
+        transform: translate(-50%, -50%) rotateX(66deg) rotateY(-14deg) rotateZ(16deg) scale(0.96);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(-50%, -50%) rotateX(66deg) rotateY(-14deg) rotateZ(16deg) scale(1.04);
+        opacity: 1;
+        box-shadow:
+            0 0 35px var(--gold),
+            0 0 75px var(--gold-glow),
+            0 0 120px rgba(0, 245, 196, 0.45),
+            inset 0 0 40px var(--gold);
+    }
+}
+
+@keyframes cyber3DOrbitPulseReverse {
+    0% {
+        transform: translate(-50%, -50%) rotateX(66deg) rotateY(14deg) rotateZ(-16deg) scale(0.96);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(-50%, -50%) rotateX(66deg) rotateY(14deg) rotateZ(-16deg) scale(1.04);
+        opacity: 1;
+        box-shadow:
+            0 0 35px var(--gold),
+            0 0 75px var(--gold-glow),
+            0 0 120px rgba(0, 245, 196, 0.45),
+            inset 0 0 40px var(--gold);
+    }
+}
+
+@keyframes cyberRingSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* 3D FLOATING TECH TILES / ICONS */
 .cyber-floating-icon {
     position: absolute;
-    width: 44px;
-    height: 44px;
+    width: 50px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 12px;
-    background: var(--bg-card);
-    border: 1px solid var(--border-gold);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 16px var(--gold-glow);
-    font-size: 1.25rem;
-    z-index: 3;
-    backdrop-filter: blur(12px);
-    transition: transform 0.3s ease;
+    border-radius: 14px;
+    background: rgba(8, 14, 22, 0.90);
+    border: 1.5px solid rgba(0, 245, 196, 0.6);
+    border-top: 2px solid rgba(0, 245, 196, 0.95);
+    border-left: 2px solid rgba(0, 245, 196, 0.85);
+    box-shadow:
+        -8px 12px 28px rgba(0, 0, 0, 0.88),
+        0 0 22px rgba(0, 245, 196, 0.5),
+        inset 0 1px 2px rgba(255, 255, 255, 0.4);
+    font-size: 1.35rem;
+    z-index: 6;
+    backdrop-filter: blur(14px);
+    transform-style: preserve-3d;
+    cursor: pointer;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
 }
 
 .cyber-floating-icon:hover {
-    transform: scale(1.15) rotate(5deg);
+    transform: scale3d(1.22, 1.22, 1.22) translateZ(50px) rotate(6deg) !important;
     border-color: var(--gold);
+    box-shadow:
+        -10px 16px 35px rgba(0, 0, 0, 0.95),
+        0 0 35px var(--gold),
+        inset 0 1px 3px rgba(255, 255, 255, 0.6);
 }
 
-.f-icon-1 { top: 8%; left: -20px; animation: floatIcon1 4s ease-in-out infinite alternate; }
-.f-icon-2 { bottom: 15%; left: -16px; animation: floatIcon2 4.6s ease-in-out infinite alternate 0.4s; }
-.f-icon-3 { top: 16%; right: -18px; animation: floatIcon3 4.2s ease-in-out infinite alternate 0.8s; }
-.f-icon-4 { bottom: 10%; right: -20px; animation: floatIcon4 5s ease-in-out infinite alternate 1.2s; }
+.f-icon-1 {
+    top: 6%;
+    left: -24px;
+    animation: float3DIcon1 4.5s ease-in-out infinite alternate;
+}
+.f-icon-2 {
+    bottom: 12%;
+    left: -20px;
+    animation: float3DIcon2 5s ease-in-out infinite alternate 0.5s;
+}
+.f-icon-3 {
+    top: 14%;
+    right: -22px;
+    animation: float3DIcon3 4.2s ease-in-out infinite alternate 0.8s;
+}
+.f-icon-4 {
+    bottom: 8%;
+    right: -24px;
+    animation: float3DIcon4 5.2s ease-in-out infinite alternate 1.2s;
+}
 
-@keyframes floatIcon1 { 0% { transform: translateY(0); } 100% { transform: translateY(-9px) rotate(-3deg); } }
-@keyframes floatIcon2 { 0% { transform: translateY(0); } 100% { transform: translateY(8px) rotate(3deg); } }
-@keyframes floatIcon3 { 0% { transform: translateY(0); } 100% { transform: translateY(-10px) rotate(4deg); } }
-@keyframes floatIcon4 { 0% { transform: translateY(0); } 100% { transform: translateY(9px) rotate(-4deg); } }
+@keyframes float3DIcon1 {
+    0% { transform: perspective(600px) rotateY(-18deg) rotateX(10deg) translateZ(20px) translateY(0); }
+    100% { transform: perspective(600px) rotateY(-24deg) rotateX(15deg) translateZ(45px) translateY(-14px); }
+}
+@keyframes float3DIcon2 {
+    0% { transform: perspective(600px) rotateY(-15deg) rotateX(-8deg) translateZ(30px) translateY(0); }
+    100% { transform: perspective(600px) rotateY(-10deg) rotateX(-4deg) translateZ(15px) translateY(12px); }
+}
+@keyframes float3DIcon3 {
+    0% { transform: perspective(600px) rotateY(18deg) rotateX(10deg) translateZ(25px) translateY(0); }
+    100% { transform: perspective(600px) rotateY(24deg) rotateX(16deg) translateZ(50px) translateY(-14px); }
+}
+@keyframes float3DIcon4 {
+    0% { transform: perspective(600px) rotateY(16deg) rotateX(-10deg) translateZ(18px) translateY(0); }
+    100% { transform: perspective(600px) rotateY(10deg) rotateX(-5deg) translateZ(38px) translateY(12px); }
+}
 
-/* CYBER PEDESTAL PLATFORM */
+/* 3D CYBER PEDESTAL STAGE PLATFORM */
 .cyber-pedestal-platform {
     position: absolute;
-    bottom: -28px;
-    left: 4%;
-    width: 92%;
-    height: 45px;
+    bottom: -45px;
+    left: 50%;
+    transform: translateX(-50%) rotateX(74deg);
+    width: 120%;
+    height: 155px;
     border-radius: 50%;
-    background: radial-gradient(ellipse at center, var(--gold-soft) 0%, transparent 72%);
-    border: 1.5px solid var(--border-gold);
-    box-shadow: 0 0 35px var(--gold-glow), inset 0 0 20px var(--gold-soft);
+    background: radial-gradient(ellipse at center, rgba(0, 245, 196, 0.35) 0%, rgba(0, 245, 196, 0.12) 42%, rgba(6, 12, 18, 0.8) 70%, transparent 85%);
+    border: 2px solid var(--gold);
+    box-shadow:
+        0 0 45px var(--gold),
+        0 0 90px rgba(0, 245, 196, 0.5),
+        inset 0 0 40px var(--gold-glow);
     pointer-events: none;
     z-index: 0;
-    animation: pedestalPulse 3.5s ease-in-out infinite alternate;
+    animation: pedestal3DPulse 4s ease-in-out infinite alternate;
 }
 
-@keyframes pedestalPulse {
-    0% { transform: scaleX(0.96); opacity: 0.6; }
-    100% { transform: scaleX(1.04); opacity: 1; }
+.cyber-pedestal-platform::before {
+    content: '';
+    position: absolute;
+    top: 18%;
+    left: 18%;
+    right: 18%;
+    bottom: 18%;
+    border-radius: 50%;
+    border: 1.5px solid rgba(0, 245, 196, 0.55);
+    box-shadow: 0 0 25px var(--gold-glow);
+}
+
+.cyber-pedestal-platform::after {
+    content: '';
+    position: absolute;
+    top: 32%;
+    left: 28%;
+    right: 28%;
+    bottom: 32%;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(0, 245, 196, 0.6) 0%, transparent 70%);
+    filter: blur(10px);
+}
+
+@keyframes pedestal3DPulse {
+    0% {
+        transform: translateX(-50%) rotateX(74deg) scale(0.97);
+        opacity: 0.75;
+    }
+    100% {
+        transform: translateX(-50%) rotateX(74deg) scale(1.03);
+        opacity: 1;
+        box-shadow:
+            0 0 55px var(--gold),
+            0 0 110px rgba(0, 245, 196, 0.65),
+            inset 0 0 50px var(--gold);
+    }
 }
 
 /* PROJECT CHECKLIST */
@@ -1385,16 +1583,96 @@ body.light-theme .btn-pedestal:hover {
     order: 1;
 }
 
-/* PROJECT WINDOW MOCKUPS */
+/* 3D PROJECT WINDOW / TABLET MOCKUP */
 .project-window {
+    position: relative;
     background: var(--window-bg);
-    border: 1px solid var(--window-border);
-    border-radius: 18px;
+    border: 2px solid rgba(0, 245, 196, 0.45);
+    border-top: 3.5px solid rgba(0, 245, 196, 0.9);
+    border-left: 2.5px solid rgba(0, 245, 196, 0.75);
+    border-radius: 22px;
     overflow: hidden;
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
-    min-height: 360px;
+    min-height: 370px;
+    width: 100%;
+    max-width: 530px;
     display: flex;
     flex-direction: column;
+    transform: rotateY(-14deg) rotateX(8deg) rotateZ(1deg);
+    transform-style: preserve-3d;
+    box-shadow:
+        -1px 1px 0px rgba(0, 245, 196, 0.5),
+        -2px 2px 0px rgba(0, 245, 196, 0.4),
+        -3px 3px 0px rgba(0, 245, 196, 0.35),
+        -4px 4px 0px rgba(0, 245, 196, 0.3),
+        -5px 5px 0px rgba(0, 245, 196, 0.25),
+        -6px 6px 0px rgba(0, 245, 196, 0.2),
+        -7px 7px 0px rgba(0, 245, 196, 0.15),
+        -14px 22px 35px rgba(0, 0, 0, 0.75),
+        -25px 38px 70px rgba(0, 0, 0, 0.9),
+        0 0 45px rgba(0, 245, 196, 0.25),
+        inset 0 1px 2px rgba(255, 255, 255, 0.3);
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease;
+    z-index: 2;
+}
+
+/* Glass Specular Glare Reflection across tablet screen */
+.project-window::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(130deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.02) 40%, transparent 60%);
+    pointer-events: none;
+    z-index: 8;
+    border-radius: inherit;
+}
+
+/* Reverse Project Layout: angles opposite way toward the center */
+.project-feature.reverse .project-window {
+    transform: rotateY(14deg) rotateX(8deg) rotateZ(-1deg);
+    border-top: 3.5px solid rgba(0, 245, 196, 0.9);
+    border-right: 2.5px solid rgba(0, 245, 196, 0.75);
+    border-left: 1.5px solid rgba(0, 245, 196, 0.3);
+    box-shadow:
+        1px 1px 0px rgba(0, 245, 196, 0.5),
+        2px 2px 0px rgba(0, 245, 196, 0.4),
+        3px 3px 0px rgba(0, 245, 196, 0.35),
+        4px 4px 0px rgba(0, 245, 196, 0.3),
+        5px 5px 0px rgba(0, 245, 196, 0.25),
+        6px 6px 0px rgba(0, 245, 196, 0.2),
+        7px 7px 0px rgba(0, 245, 196, 0.15),
+        14px 22px 35px rgba(0, 0, 0, 0.75),
+        25px 38px 70px rgba(0, 0, 0, 0.9),
+        0 0 45px rgba(0, 245, 196, 0.25),
+        inset 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.project-visual:hover .project-window {
+    transform: rotateY(-6deg) rotateX(4deg) scale3d(1.03, 1.03, 1.03) translateY(-8px);
+    box-shadow:
+        -1px 1px 0px rgba(0, 245, 196, 0.6),
+        -3px 3px 0px rgba(0, 245, 196, 0.5),
+        -5px 5px 0px rgba(0, 245, 196, 0.4),
+        -7px 7px 0px rgba(0, 245, 196, 0.3),
+        -9px 9px 0px rgba(0, 245, 196, 0.2),
+        -18px 28px 45px rgba(0, 0, 0, 0.8),
+        -32px 48px 90px rgba(0, 0, 0, 0.95),
+        0 0 65px rgba(0, 245, 196, 0.45);
+}
+
+.project-feature.reverse .project-visual:hover .project-window {
+    transform: rotateY(6deg) rotateX(4deg) scale3d(1.03, 1.03, 1.03) translateY(-8px);
+    box-shadow:
+        1px 1px 0px rgba(0, 245, 196, 0.6),
+        3px 3px 0px rgba(0, 245, 196, 0.5),
+        5px 5px 0px rgba(0, 245, 196, 0.4),
+        7px 7px 0px rgba(0, 245, 196, 0.3),
+        9px 9px 0px rgba(0, 245, 196, 0.2),
+        18px 28px 45px rgba(0, 0, 0, 0.8),
+        32px 48px 90px rgba(0, 0, 0, 0.95),
+        0 0 65px rgba(0, 245, 196, 0.45);
 }
 
 .window-header {
@@ -1511,15 +1789,29 @@ body.light-theme .btn-pedestal:hover {
 }
 
 .mock-product {
-    padding: 14px;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    background: var(--bg-card);
+    padding: 16px 12px;
+    border: 1px solid rgba(0, 245, 196, 0.35);
+    border-top: 1.5px solid rgba(0, 245, 196, 0.7);
+    border-radius: 14px;
+    background: rgba(10, 18, 28, 0.82);
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 8px;
     text-align: center;
+    box-shadow:
+        0 8px 22px rgba(0, 0, 0, 0.6),
+        0 0 15px rgba(0, 245, 196, 0.15),
+        inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mock-product:hover {
+    transform: translateY(-5px) scale(1.05);
+    border-color: var(--gold);
+    box-shadow:
+        0 14px 30px rgba(0, 0, 0, 0.75),
+        0 0 25px var(--gold-glow);
 }
 
 .mock-img-placeholder {
@@ -2623,6 +2915,41 @@ dialog.gallery-modal::backdrop {
         padding: 9px 13px;
         transform: scale(0.9);
     }
+
+    .project-visual {
+        min-height: 360px;
+        perspective: 900px;
+    }
+
+    .project-window,
+    .project-feature.reverse .project-window {
+        transform: rotateY(-6deg) rotateX(4deg) !important;
+        max-width: 100%;
+    }
+
+    .cyber-orbit-ring,
+    .project-feature.reverse .cyber-orbit-ring {
+        width: 108%;
+        height: 85px;
+        transform: translate(-50%, -50%) rotateX(66deg) rotateY(-6deg) rotateZ(10deg) !important;
+    }
+
+    .cyber-pedestal-platform {
+        width: 105%;
+        height: 110px;
+        bottom: -25px;
+    }
+
+    .cyber-floating-icon {
+        width: 42px;
+        height: 42px;
+        font-size: 1.15rem;
+    }
+
+    .f-icon-1 { left: -10px; }
+    .f-icon-2 { left: -8px; }
+    .f-icon-3 { right: -8px; }
+    .f-icon-4 { right: -10px; }
 }
 
 @media (max-width: 480px) {

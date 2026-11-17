@@ -226,6 +226,53 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    /* ================= 3D INTERACTIVE TILT FOR PROJECT WINDOWS ================= */
+    const projectVisuals = document.querySelectorAll(".project-visual");
+    if (window.matchMedia("(min-width: 769px)").matches) {
+        projectVisuals.forEach((visual) => {
+            const windowEl = visual.querySelector(".project-window");
+            if (!windowEl) return;
+
+            const isReverse = visual.closest(".project-feature")?.classList.contains("reverse");
+            const baseRotY = isReverse ? 14 : -14;
+            const baseRotX = 8;
+            const icons = visual.querySelectorAll(".cyber-floating-icon");
+
+            let isHovered = false;
+
+            visual.addEventListener("mouseenter", () => {
+                isHovered = true;
+                windowEl.style.transition = "transform 0.12s ease-out, box-shadow 0.25s ease";
+            });
+
+            visual.addEventListener("mousemove", (e) => {
+                if (!isHovered) return;
+                const rect = visual.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width - 0.5;
+                const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+                const rotY = baseRotY + x * 20;
+                const rotX = baseRotX - y * 16;
+
+                windowEl.style.transform = `perspective(1200px) rotateY(${rotY.toFixed(2)}deg) rotateX(${rotX.toFixed(2)}deg) scale3d(1.025, 1.025, 1.025)`;
+
+                icons.forEach((icon, idx) => {
+                    const depth = (idx + 1) * 7;
+                    icon.style.transform = `translate3d(${(x * depth).toFixed(1)}px, ${(y * depth).toFixed(1)}px, 35px)`;
+                });
+            });
+
+            visual.addEventListener("mouseleave", () => {
+                isHovered = false;
+                windowEl.style.transition = "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease";
+                windowEl.style.transform = "";
+                icons.forEach((icon) => {
+                    icon.style.transform = "";
+                });
+            });
+        });
+    }
+
     /* ================= TOAST NOTIFICATION UTILITY ================= */
     function showToast(message, isSuccess = true) {
         if (!toastContainer) return;
