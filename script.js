@@ -177,9 +177,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 ambientCtx.beginPath();
                 ambientCtx.arc(b.x, b.y, b.radius, 0, Math.PI * 2);
                 if (isDark) {
-                    ambientCtx.fillStyle = `rgba(214, 173, 96, ${safeAlpha * 0.75})`;
-                    ambientCtx.shadowBlur = 6;
-                    ambientCtx.shadowColor = "rgba(214, 173, 96, 0.45)";
+                    ambientCtx.fillStyle = `rgba(0, 245, 196, ${safeAlpha * 0.85})`;
+                    ambientCtx.shadowBlur = 8;
+                    ambientCtx.shadowColor = "rgba(0, 245, 196, 0.6)";
                 } else {
                     ambientCtx.fillStyle = `rgba(56, 189, 248, ${safeAlpha})`;
                     ambientCtx.shadowBlur = 7;
@@ -193,6 +193,37 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
         renderBubblesLoop();
+    }
+
+    /* ================= PROJECT CATEGORY FILTERS (IMAGE 2) ================= */
+    const projectFilterBtns = document.querySelectorAll(".p-filter-btn");
+    const projectCards = document.querySelectorAll(".project-feature");
+
+    if (projectFilterBtns.length > 0 && projectCards.length > 0) {
+        projectFilterBtns.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                projectFilterBtns.forEach((b) => b.classList.remove("active"));
+                btn.classList.add("active");
+
+                const filter = btn.getAttribute("data-pfilter");
+
+                projectCards.forEach((card) => {
+                    const categories = (card.getAttribute("data-category") || "").split(" ");
+                    if (filter === "all" || categories.includes(filter)) {
+                        card.style.display = "grid";
+                        card.style.opacity = "0";
+                        card.style.transform = "translateY(15px)";
+                        setTimeout(() => {
+                            card.style.transition = "opacity 0.35s ease, transform 0.35s ease";
+                            card.style.opacity = "1";
+                            card.style.transform = "translateY(0)";
+                        }, 20);
+                    } else {
+                        card.style.display = "none";
+                    }
+                });
+            });
+        });
     }
 
     /* ================= TOAST NOTIFICATION UTILITY ================= */

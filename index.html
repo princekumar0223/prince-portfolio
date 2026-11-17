@@ -49,7 +49,7 @@
     <header class="navbar">
         <div class="container nav-container">
             <a href="#home" class="logo">
-                Prince<span class="gold-dot">.</span>
+                <span class="logo-code">&lt;/&gt;</span> Prince Kumar
             </a>
 
             <!-- NAV LINKS: Gallery right before Contact -->
@@ -105,36 +105,34 @@
                         <span>Available for Projects & Collaboration</span>
                     </div>
 
-                    <p class="hero-intro">Hello, I'm</p>
+                    <p class="hero-intro">👋 Hello, I'm</p>
 
                     <h1 class="hero-name">
-                        Prince Kumar
+                        Prince <span class="gradient-text">Kumar</span>
                     </h1>
 
                     <h2 class="hero-subtitle">
-                        <span class="gradient-text">Software Developer</span>
-                        & AI/ML Enthusiast
+                        B.Tech CSE (AI & ML) Student
                     </h2>
 
                     <p class="hero-description">
-                        I'm a B.Tech Computer Science student specializing in
-                        <strong>Artificial Intelligence & Machine Learning</strong>.
-                        I build practical software projects, intelligent web applications, and explore modern engineering solutions.
+                        I build practical software projects, intelligent web applications, and explore AI/ML to solve real-world problems.
                     </p>
 
                     <div class="hero-buttons">
                         <a href="#projects" class="btn btn-primary">
-                            <span>Explore Projects</span>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
-                        </a>
-
-                        <a href="#gallery" class="btn btn-secondary">
-                            <span>View Certificates & Gallery</span>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                            <span>View Projects</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                         </a>
 
                         <a href="#contact" class="btn btn-outline">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                             <span>Contact Me</span>
+                        </a>
+
+                        <a href="#gallery" class="btn btn-secondary">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                            <span>Certificates</span>
                         </a>
                     </div>
 
@@ -185,10 +183,11 @@
                     </div>
                 </div>
 
-                <!-- HERO PROFILE VISUAL -->
+                <!-- HERO PROFILE VISUAL (IMAGE 1 CYBER PORTAL & BADGES) -->
                 <div class="hero-visual">
                     <div class="profile-card">
-                        <div class="profile-glow"></div>
+                        <div class="portal-orbit-ring" aria-hidden="true"></div>
+                        <div class="portal-glow-aura" aria-hidden="true"></div>
                         <div class="profile-frame">
                             <img
                                 src="assets/images/profile.jpg"
@@ -199,27 +198,27 @@
                         </div>
                     </div>
 
-                    <div class="floating-card card-one">
-                        <span class="floating-icon">🎓</span>
+                    <div class="floating-card card-one badge-web">
+                        <span class="floating-icon">&lt;/&gt;</span>
                         <div>
-                            <strong>B.Tech CSE</strong>
-                            <small>AIML Specialization</small>
+                            <strong>Web Development</strong>
+                            <small>Full Stack & Cloud</small>
                         </div>
                     </div>
 
-                    <div class="floating-card card-two">
+                    <div class="floating-card card-two badge-ai">
+                        <span class="floating-icon">⚙️</span>
+                        <div>
+                            <strong>AI / ML</strong>
+                            <small>B.Tech Specialization</small>
+                        </div>
+                    </div>
+
+                    <div class="floating-card card-three badge-problem">
                         <span class="floating-icon">⚡</span>
                         <div>
-                            <strong>Full Stack & AI</strong>
-                            <small>Practical Projects</small>
-                        </div>
-                    </div>
-
-                    <div class="floating-card card-three">
-                        <span class="floating-icon">🚀</span>
-                        <div>
-                            <strong>Active Builder</strong>
-                            <small>Live on Cloud</small>
+                            <strong>Problem Solving</strong>
+                            <small>Algorithms & Logic</small>
                         </div>
                     </div>
                 </div>
@@ -438,19 +437,34 @@
         <!-- ================= PROJECTS ================= -->
         <section id="projects" class="section projects-section">
             <div class="container">
-                <p class="section-label">SELECTED PROJECTS</p>
+                <div class="section-tag-pill"><span class="neon-dot"></span><span>My Work</span></div>
                 <h2 class="section-title">
-                    Things I've <span>built.</span>
+                    Featured <span>Projects</span>
                 </h2>
                 <p class="section-description">
-                    Real-world applications showcasing full-stack development, AI capabilities, and deployed live services.
+                    Some of my best works, built with passion and purpose.
                 </p>
+
+                <div class="project-filters-bar" role="tablist" aria-label="Project category filters">
+                    <button type="button" class="p-filter-btn active" data-pfilter="all"><span class="filter-icon">⊞</span> All</button>
+                    <button type="button" class="p-filter-btn" data-pfilter="web"><span class="filter-icon">🌐</span> Web Development</button>
+                    <button type="button" class="p-filter-btn" data-pfilter="aiml"><span class="filter-icon">⚙️</span> AI / ML</button>
+                    <button type="button" class="p-filter-btn" data-pfilter="python"><span class="filter-icon">🐍</span> Python</button>
+                    <button type="button" class="p-filter-btn" data-pfilter="other"><span class="filter-icon">📦</span> Other</button>
+                </div>
 
                 <div class="projects-showcase">
 
                     <!-- ================= PROJECT 01: PRINCE MART ================= -->
-                    <article class="project-feature">
+                    <article class="project-feature" data-category="web python">
                         <div class="project-visual">
+                            <div class="cyber-orbit-ring" aria-hidden="true"></div>
+                            <span class="cyber-floating-icon f-icon-1" aria-hidden="true">🛒</span>
+                            <span class="cyber-floating-icon f-icon-2" aria-hidden="true">🗄️</span>
+                            <span class="cyber-floating-icon f-icon-3" aria-hidden="true">&lt;/&gt;</span>
+                            <span class="cyber-floating-icon f-icon-4" aria-hidden="true">🚀</span>
+                            <div class="cyber-pedestal-platform" aria-hidden="true"></div>
+
                             <div class="project-window">
                                 <div class="window-header">
                                     <div class="window-dots">
@@ -503,32 +517,27 @@
                         <div class="project-info">
                             <div class="project-meta">
                                 <span>01</span>
-                                <span>E-COMMERCE & MANAGEMENT</span>
+                                <span class="project-tag-pill">🟢 E-Commerce</span>
                                 <span class="project-badge-live">Live on Render</span>
                             </div>
 
-                            <h3>Prince Mart</h3>
+                            <h3>Prince Mart <a href="https://prince-mart.onrender.com" target="_blank" rel="noopener noreferrer" class="title-ext-link" title="Open Live Store">↗</a></h3>
 
                             <p>
-                                A comprehensive grocery and wholesale ordering web application built for local shopkeepers, merchants, and customers. It features intuitive product discovery, dynamic pricing management, custom customer cart & order processing, Cash on Delivery, and a dedicated <strong>secure Admin portal</strong> to oversee store inventory and sales.
+                                A modern shopkeeper website built with Flask & Python. It allows product management, ordering, real OTP verification, and more.
                             </p>
 
-                            <div class="project-features">
-                                <span>Product & Inventory Management</span>
-                                <span>Customer Ordering & Cart</span>
-                                <span>Admin Dashboard & Auth</span>
-                                <span>Cash on Delivery</span>
-                                <span>Dynamic Pricing</span>
+                            <div class="project-feature-checklist">
+                                <span><span class="check-icon">✓</span> Product Management</span>
+                                <span><span class="check-icon">✓</span> Real OTP Verification</span>
+                                <span><span class="check-icon">✓</span> Cash on Delivery</span>
+                                <span><span class="check-icon">✓</span> Admin Dashboard</span>
                             </div>
 
                             <div class="project-stack">
                                 <span>Python</span>
                                 <span>Flask</span>
                                 <span>SQLite</span>
-                                <span>HTML5</span>
-                                <span>CSS3</span>
-                                <span>JavaScript</span>
-                                <span>Render</span>
                             </div>
 
                             <div class="project-actions">
@@ -539,8 +548,8 @@
                                     class="project-action action-live"
                                     title="Open Prince Mart Store"
                                 >
-                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                                    <span>Live Website</span>
+                                    <span>View Project</span>
+                                    <span>→</span>
                                 </a>
 
                                 <a
@@ -569,8 +578,15 @@
                     </article>
 
                     <!-- ================= PROJECT 02: RELINK AI ================= -->
-                    <article class="project-feature reverse">
+                    <article class="project-feature reverse" data-category="web aiml python">
                         <div class="project-visual">
+                            <div class="cyber-orbit-ring" aria-hidden="true"></div>
+                            <span class="cyber-floating-icon f-icon-1" aria-hidden="true">⚡</span>
+                            <span class="cyber-floating-icon f-icon-2" aria-hidden="true">🔗</span>
+                            <span class="cyber-floating-icon f-icon-3" aria-hidden="true">📊</span>
+                            <span class="cyber-floating-icon f-icon-4" aria-hidden="true">☁️</span>
+                            <div class="cyber-pedestal-platform" aria-hidden="true"></div>
+
                             <div class="project-window ai-window">
                                 <div class="window-header">
                                     <div class="window-dots">
@@ -627,32 +643,28 @@
                         <div class="project-info">
                             <div class="project-meta">
                                 <span>02</span>
-                                <span>AI & WEB PLATFORM</span>
+                                <span class="project-tag-pill">🟢 AI Platform</span>
                                 <span class="project-badge-live">Live on Render</span>
                             </div>
 
-                            <h3>Relink AI</h3>
+                            <h3>Relink AI <a href="https://relink-ai.onrender.com" target="_blank" rel="noopener noreferrer" class="title-ext-link" title="Open Live Website">↗</a></h3>
 
                             <p>
-                                An intelligent AI-powered link management, smart shortening, and bio optimization platform built for developers, creators, and businesses. Features fast link shortening, custom bio links, instant redirection, click intelligence, and automated link insights hosted seamlessly on Render cloud.
+                                An intelligent AI-powered link management, smart shortening, and bio optimization platform built for developers, creators, and businesses with cloud routing and metrics.
                             </p>
 
-                            <div class="project-features">
-                                <span>Smart URL Shortening</span>
-                                <span>AI Bio Link Pages</span>
-                                <span>Click Analytics & Metrics</span>
-                                <span>High-Speed Redirection</span>
-                                <span>Cloud Hosted on Render</span>
+                            <div class="project-feature-checklist">
+                                <span><span class="check-icon">✓</span> Smart URL Shortening</span>
+                                <span><span class="check-icon">✓</span> AI Bio Link Pages</span>
+                                <span><span class="check-icon">✓</span> Click Intelligence</span>
+                                <span><span class="check-icon">✓</span> Cloud Hosted on Render</span>
                             </div>
 
                             <div class="project-stack">
                                 <span>Python</span>
                                 <span>Flask</span>
                                 <span>AI/ML</span>
-                                <span>SQLite / PostgreSQL</span>
-                                <span>HTML5 / CSS3</span>
-                                <span>JavaScript</span>
-                                <span>Render</span>
+                                <span>SQLite</span>
                             </div>
 
                             <div class="project-actions">
@@ -663,8 +675,8 @@
                                     class="project-action action-live"
                                     title="Open Relink AI Live Website"
                                 >
-                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                                    <span>Live Website</span>
+                                    <span>View Project</span>
+                                    <span>→</span>
                                 </a>
 
                                 <a
@@ -687,8 +699,15 @@
                     </article>
 
                     <!-- ================= PROJECT 03: VAKTA AI ================= -->
-                    <article class="project-feature">
+                    <article class="project-feature" data-category="web aiml other">
                         <div class="project-visual">
+                            <div class="cyber-orbit-ring" aria-hidden="true"></div>
+                            <span class="cyber-floating-icon f-icon-1" aria-hidden="true">🎙️</span>
+                            <span class="cyber-floating-icon f-icon-2" aria-hidden="true">👁️</span>
+                            <span class="cyber-floating-icon f-icon-3" aria-hidden="true">🧠</span>
+                            <span class="cyber-floating-icon f-icon-4" aria-hidden="true">⚡</span>
+                            <div class="cyber-pedestal-platform" aria-hidden="true"></div>
+
                             <div class="project-window ai-window">
                                 <div class="window-header">
                                     <div class="window-dots">
@@ -762,31 +781,27 @@
                         <div class="project-info">
                             <div class="project-meta">
                                 <span>03</span>
-                                <span>AI & COMPUTER VISION / SPEECH AI</span>
+                                <span class="project-tag-pill">🟢 AI / Speech</span>
                                 <span class="project-badge-live">Live on Netlify</span>
                             </div>
 
-                            <h3>VAKTA — AI Interview Coach</h3>
+                            <h3>VAKTA — AI Interview Coach <a href="https://vakta.netlify.app" target="_blank" rel="noopener noreferrer" class="title-ext-link" title="Open Live App">↗</a></h3>
 
                             <p>
-                                An intelligent real-time AI-powered spoken interview coaching platform that conducts interactive voice mock interviews. Features live speech recognition, computer vision eye contact and head pose tracking, technical accuracy scoring against model answers, and comprehensive post-interview performance diagnostics hosted seamlessly on Netlify.
+                                An intelligent real-time AI-powered spoken interview coaching platform that conducts interactive voice mock interviews with computer vision and instant scoring.
                             </p>
 
-                            <div class="project-features">
-                                <span>Spoken Voice Mock Interviews</span>
-                                <span>Computer Vision Eye Tracking</span>
-                                <span>Real-time Speech-to-Text</span>
-                                <span>Technical Accuracy Scoring</span>
-                                <span>Instant Diagnostic Feedback</span>
-                                <span>Cloud Hosted on Netlify Edge</span>
+                            <div class="project-feature-checklist">
+                                <span><span class="check-icon">✓</span> Spoken Mock Interviews</span>
+                                <span><span class="check-icon">✓</span> Vision Eye Tracking</span>
+                                <span><span class="check-icon">✓</span> Real-time Speech-to-Text</span>
+                                <span><span class="check-icon">✓</span> Edge Diagnostics</span>
                             </div>
 
                             <div class="project-stack">
                                 <span>JavaScript</span>
                                 <span>Web Speech API</span>
                                 <span>Computer Vision</span>
-                                <span>AI / LLM</span>
-                                <span>HTML5 / CSS3</span>
                                 <span>Netlify</span>
                             </div>
 
@@ -798,8 +813,8 @@
                                     class="project-action action-live"
                                     title="Open VAKTA Live Application"
                                 >
-                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                                    <span>Live Website</span>
+                                    <span>View Project</span>
+                                    <span>→</span>
                                 </a>
 
                                 <a
@@ -820,6 +835,15 @@
                             </div>
                         </div>
                     </article>
+
+                    <!-- Bottom Pedestal CTA (Image 2) -->
+                    <div class="projects-pedestal-cta">
+                        <a href="https://github.com/princekumar0223" target="_blank" rel="noopener noreferrer" class="btn-pedestal">
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                            <span>View All Projects on GitHub</span>
+                            <span>→</span>
+                        </a>
+                    </div>
 
                 </div>
             </div>
