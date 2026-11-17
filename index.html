@@ -19,6 +19,9 @@
         try {
             const savedTheme = localStorage.getItem("portfolio_theme") || "dark";
             document.documentElement.setAttribute("data-theme", savedTheme);
+            if (savedTheme === "light") {
+                document.documentElement.classList.add("light-theme");
+            }
             const metaTheme = document.querySelector('meta[name="color-scheme"]');
             if (metaTheme) metaTheme.content = savedTheme;
         } catch (e) {}

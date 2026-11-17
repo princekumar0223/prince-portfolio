@@ -55,7 +55,8 @@
 
 /* ================= LIGHT THEME OVERRIDES (VAKTA SKY-BLUE ETHEREAL THEME) ================= */
 :root[data-theme="light"],
-:root:has(> head > meta[name="color-scheme"][content="light"]) {
+html[data-theme="light"],
+body.light-theme {
     color-scheme: light;
 
     --bg: #ffffff;
@@ -91,32 +92,50 @@
     --ambient-opacity: 0.75;
 }
 
-:root[data-theme="light"] body {
-    background: linear-gradient(180deg, #ffffff 0%, #ffffff 32%, #e0f2fe 72%, #bae6fd 100%);
-    background-attachment: fixed;
+:root[data-theme="light"] body,
+html[data-theme="light"] body,
+body.light-theme {
+    background: linear-gradient(180deg, #ffffff 0%, #ffffff 32%, #e0f2fe 72%, #bae6fd 100%) !important;
+    background-attachment: fixed !important;
 }
 
-:root[data-theme="light"] .glow-top {
+:root[data-theme="light"] .glow-top,
+html[data-theme="light"] .glow-top,
+body.light-theme .glow-top {
     background: radial-gradient(circle, rgba(186, 230, 253, 0.65) 0%, transparent 70%);
 }
 
-:root[data-theme="light"] .glow-middle {
+:root[data-theme="light"] .glow-middle,
+html[data-theme="light"] .glow-middle,
+body.light-theme .glow-middle {
     background: radial-gradient(circle, rgba(147, 197, 253, 0.5) 0%, transparent 70%);
 }
 
-:root[data-theme="light"] .glow-bottom {
+:root[data-theme="light"] .glow-bottom,
+html[data-theme="light"] .glow-bottom,
+body.light-theme .glow-bottom {
     background: radial-gradient(circle, rgba(56, 189, 248, 0.45) 0%, transparent 70%);
 }
 
 :root[data-theme="light"] .btn-primary,
+html[data-theme="light"] .btn-primary,
+body.light-theme .btn-primary,
 :root[data-theme="light"] .project-action.action-live,
+html[data-theme="light"] .project-action.action-live,
+body.light-theme .project-action.action-live,
 :root[data-theme="light"] .theme-btn.active,
-:root[data-theme="light"] .relink-action-badge {
-    color: #ffffff;
+html[data-theme="light"] .theme-btn.active,
+body.light-theme .theme-btn.active,
+:root[data-theme="light"] .relink-action-badge,
+html[data-theme="light"] .relink-action-badge,
+body.light-theme .relink-action-badge {
+    color: #ffffff !important;
 }
 
-:root[data-theme="light"] .nav-button:hover {
-    color: #ffffff;
+:root[data-theme="light"] .nav-button:hover,
+html[data-theme="light"] .nav-button:hover,
+body.light-theme .nav-button:hover {
+    color: #ffffff !important;
 }
 
 /* ================= RESET & BASE ================= */

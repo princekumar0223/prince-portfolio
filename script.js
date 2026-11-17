@@ -6,43 +6,6 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* ================= THEME SWITCHER (DARK & LIGHT) ================= */
-    const darkThemeBtn = document.getElementById("darkThemeBtn");
-    const lightThemeBtn = document.getElementById("lightThemeBtn");
-    const metaColorScheme = document.querySelector('meta[name="color-scheme"]');
-
-    function applyTheme(theme) {
-        document.documentElement.setAttribute("data-theme", theme);
-        if (metaColorScheme) {
-            metaColorScheme.content = theme;
-        }
-        try {
-            localStorage.setItem("portfolio_theme", theme);
-        } catch (e) {}
-
-        if (darkThemeBtn && lightThemeBtn) {
-            if (theme === "light") {
-                lightThemeBtn.classList.add("active");
-                darkThemeBtn.classList.remove("active");
-            } else {
-                darkThemeBtn.classList.add("active");
-                lightThemeBtn.classList.remove("active");
-            }
-        }
-        updateNavbar();
-    }
-
-    // Initialize theme from localStorage or system preference
-    const savedTheme = localStorage.getItem("portfolio_theme") || "dark";
-    applyTheme(savedTheme);
-
-    if (darkThemeBtn) {
-        darkThemeBtn.addEventListener("click", () => applyTheme("dark"));
-    }
-    if (lightThemeBtn) {
-        lightThemeBtn.addEventListener("click", () => applyTheme("light"));
-    }
-
     /* ================= ELEMENTS ================= */
     const navbar = document.querySelector(".navbar");
     const navLinks = document.querySelectorAll(".nav-links a");
@@ -53,6 +16,68 @@ document.addEventListener("DOMContentLoaded", () => {
     const currentYearEl = document.getElementById("currentYear");
     const copyEmailBtn = document.getElementById("copyEmailBtn");
     const toastContainer = document.getElementById("toastContainer");
+    const darkThemeBtn = document.getElementById("darkThemeBtn");
+    const lightThemeBtn = document.getElementById("lightThemeBtn");
+    const metaColorScheme = document.querySelector('meta[name="color-scheme"]');
+
+    /* ================= NAVBAR SCROLL BLUR ================= */
+    function updateNavbar() {
+        const nav = navbar || document.querySelector(".navbar");
+        if (!nav) return;
+        const isLight = document.documentElement.getAttribute("data-theme") === "light" ||
+                        (document.body && document.body.classList.contains("light-theme"));
+        if (window.scrollY > 30) {
+            nav.style.background = isLight ? "rgba(255, 255, 255, 0.94)" : "rgba(7, 7, 10, 0.94)";
+            nav.style.borderBottomColor = isLight ? "rgba(147, 197, 253, 0.6)" : "rgba(214, 173, 96, 0.2)";
+        } else {
+            nav.style.background = isLight ? "rgba(255, 255, 255, 0.88)" : "rgba(7, 7, 10, 0.82)";
+            nav.style.borderBottomColor = isLight ? "rgba(147, 197, 253, 0.4)" : "rgba(255, 255, 255, 0.08)";
+        }
+    }
+
+    /* ================= THEME SWITCHER (DARK & LIGHT) ================= */
+    function applyTheme(theme) {
+        const targetTheme = theme === "light" ? "light" : "dark";
+        document.documentElement.setAttribute("data-theme", targetTheme);
+        if (document.body) {
+            document.body.classList.toggle("light-theme", targetTheme === "light");
+            document.body.classList.toggle("dark-theme", targetTheme === "dark");
+        }
+        if (metaColorScheme) {
+            metaColorScheme.content = targetTheme;
+        }
+        try {
+            localStorage.setItem("portfolio_theme", targetTheme);
+        } catch (e) {}
+
+        if (darkThemeBtn && lightThemeBtn) {
+            if (targetTheme === "light") {
+                lightThemeBtn.classList.add("active");
+                darkThemeBtn.classList.remove("active");
+            } else {
+                darkThemeBtn.classList.add("active");
+                lightThemeBtn.classList.remove("active");
+            }
+        }
+        updateNavbar();
+    }
+
+    if (darkThemeBtn) {
+        darkThemeBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            applyTheme("dark");
+        });
+    }
+    if (lightThemeBtn) {
+        lightThemeBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            applyTheme("light");
+        });
+    }
+
+    // Initialize theme from localStorage or system preference
+    const savedTheme = localStorage.getItem("portfolio_theme") || "dark";
+    applyTheme(savedTheme);
 
     /* ================= CURRENT YEAR ================= */
     if (currentYearEl) {
@@ -98,19 +123,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    /* ================= NAVBAR SCROLL BLUR ================= */
-    function updateNavbar() {
-        if (!navbar) return;
-        const isLight = document.documentElement.getAttribute("data-theme") === "light";
-        if (window.scrollY > 30) {
-            navbar.style.background = isLight ? "rgba(255, 255, 255, 0.94)" : "rgba(7, 7, 10, 0.94)";
-            navbar.style.borderBottomColor = isLight ? "rgba(147, 197, 253, 0.6)" : "rgba(214, 173, 96, 0.2)";
-        } else {
-            navbar.style.background = isLight ? "rgba(255, 255, 255, 0.88)" : "rgba(7, 7, 10, 0.82)";
-            navbar.style.borderBottomColor = isLight ? "rgba(147, 197, 253, 0.4)" : "rgba(255, 255, 255, 0.08)";
-        }
-    }
-
     window.addEventListener("scroll", () => {
         updateActiveNav();
         updateNavbar();
@@ -118,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* ================= FLOATING AMBIENT GLOWING PARTICLES CANVAS (VAKTA STYLE) ================= */
     const ambientCanvas = document.getElementById("ambientCanvas");
-    if (ambientCanvas) {
+    if (ambientCanvas && typeof ambientCanvas.getContext === "function") {
         const ambientCtx = ambientCanvas.getContext("2d");
         let bubbles = [];
 
@@ -176,7 +188,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 ambientCtx.fill();
                 ambientCtx.shadowBlur = 0;
             }
-            requestAnimationFrame(renderBubblesLoop);
+            if (typeof window.requestAnimationFrame === "function") {
+                window.requestAnimationFrame(renderBubblesLoop);
+            }
         }
         renderBubblesLoop();
     }
@@ -361,7 +375,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Modern Web Guidance: Fallback light-dismiss for browsers lacking closedby support
-    if (galleryModal && !('closedBy' in HTMLDialogElement.prototype)) {
+    if (galleryModal && typeof HTMLDialogElement !== "undefined" && !('closedBy' in HTMLDialogElement.prototype)) {
         const outside = (e, dialog) => {
             const r = dialog.getBoundingClientRect();
             return e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom;
