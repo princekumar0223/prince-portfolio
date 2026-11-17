@@ -53,42 +53,70 @@
     --transition-slow: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ================= LIGHT THEME OVERRIDES ================= */
+/* ================= LIGHT THEME OVERRIDES (VAKTA SKY-BLUE ETHEREAL THEME) ================= */
 :root[data-theme="light"],
 :root:has(> head > meta[name="color-scheme"][content="light"]) {
     color-scheme: light;
 
-    --bg: #f6f8fc;
-    --bg-secondary: #ffffff;
-    --bg-card: rgba(255, 255, 255, 0.88);
+    --bg: #ffffff;
+    --bg-secondary: #f0f9ff;
+    --bg-card: rgba(255, 255, 255, 0.90);
     --bg-card-hover: #ffffff;
-    --bg-glass: rgba(0, 0, 0, 0.02);
+    --bg-glass: rgba(255, 255, 255, 0.88);
 
-    --gold: #b3852d;
-    --gold-light: #8e6518;
-    --gold-dark: #7a5410;
-    --gold-gradient: linear-gradient(135deg, #c99839 0%, #b3852d 50%, #8e6518 100%);
-    --gold-glow: rgba(179, 133, 45, 0.22);
-    --gold-soft: rgba(179, 133, 45, 0.1);
+    --gold: #0284c7;
+    --gold-light: #0369a1;
+    --gold-dark: #075985;
+    --gold-gradient: linear-gradient(135deg, #0284c7 0%, #0ea5e9 50%, #38bdf8 100%);
+    --gold-glow: rgba(14, 165, 233, 0.32);
+    --gold-soft: rgba(224, 242, 254, 0.75);
 
-    --white: #111318;
-    --text-primary: #12141a;
-    --text-secondary: #4e5263;
-    --text-muted: #74788c;
+    --white: #0f172a;
+    --text-primary: #0f172a;
+    --text-secondary: #334155;
+    --text-muted: #64748b;
 
-    --border: rgba(0, 0, 0, 0.08);
-    --border-hover: rgba(179, 133, 45, 0.4);
-    --border-gold: rgba(179, 133, 45, 0.28);
+    --border: rgba(147, 197, 253, 0.55);
+    --border-hover: rgba(56, 189, 248, 0.85);
+    --border-gold: rgba(147, 197, 253, 0.65);
 
     --window-bg: #ffffff;
-    --window-header: rgba(0, 0, 0, 0.035);
-    --window-border: rgba(0, 0, 0, 0.08);
+    --window-header: rgba(224, 242, 254, 0.55);
+    --window-border: rgba(147, 197, 253, 0.55);
 
-    --navbar-bg: rgba(246, 248, 252, 0.85);
-    --navbar-scrolled: rgba(246, 248, 252, 0.96);
+    --navbar-bg: rgba(255, 255, 255, 0.88);
+    --navbar-scrolled: rgba(255, 255, 255, 0.96);
 
-    --card-shadow: 0 14px 38px rgba(0, 0, 0, 0.06);
-    --ambient-opacity: 0.2;
+    --card-shadow: 0 16px 35px -8px rgba(186, 230, 253, 0.45);
+    --ambient-opacity: 0.75;
+}
+
+:root[data-theme="light"] body {
+    background: linear-gradient(180deg, #ffffff 0%, #ffffff 32%, #e0f2fe 72%, #bae6fd 100%);
+    background-attachment: fixed;
+}
+
+:root[data-theme="light"] .glow-top {
+    background: radial-gradient(circle, rgba(186, 230, 253, 0.65) 0%, transparent 70%);
+}
+
+:root[data-theme="light"] .glow-middle {
+    background: radial-gradient(circle, rgba(147, 197, 253, 0.5) 0%, transparent 70%);
+}
+
+:root[data-theme="light"] .glow-bottom {
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.45) 0%, transparent 70%);
+}
+
+:root[data-theme="light"] .btn-primary,
+:root[data-theme="light"] .project-action.action-live,
+:root[data-theme="light"] .theme-btn.active,
+:root[data-theme="light"] .relink-action-badge {
+    color: #ffffff;
+}
+
+:root[data-theme="light"] .nav-button:hover {
+    color: #ffffff;
 }
 
 /* ================= RESET & BASE ================= */
@@ -171,6 +199,17 @@ img {
     bottom: -150px;
     right: -150px;
     background: radial-gradient(circle, rgba(214, 173, 96, 0.16) 0%, transparent 70%);
+}
+
+/* ================= FLOATING AMBIENT PARTICLES CANVAS (VAKTA STYLE) ================= */
+#ambientCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
 }
 
 /* ================= LAYOUT CONTAINER ================= */

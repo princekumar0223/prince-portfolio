@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 lightThemeBtn.classList.remove("active");
             }
         }
+        updateNavbar();
     }
 
     // Initialize theme from localStorage or system preference
@@ -102,11 +103,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!navbar) return;
         const isLight = document.documentElement.getAttribute("data-theme") === "light";
         if (window.scrollY > 30) {
-            navbar.style.background = isLight ? "rgba(246, 248, 252, 0.96)" : "rgba(7, 7, 10, 0.94)";
-            navbar.style.borderBottomColor = isLight ? "rgba(179, 133, 45, 0.25)" : "rgba(214, 173, 96, 0.2)";
+            navbar.style.background = isLight ? "rgba(255, 255, 255, 0.94)" : "rgba(7, 7, 10, 0.94)";
+            navbar.style.borderBottomColor = isLight ? "rgba(147, 197, 253, 0.6)" : "rgba(214, 173, 96, 0.2)";
         } else {
-            navbar.style.background = isLight ? "rgba(246, 248, 252, 0.85)" : "rgba(7, 7, 10, 0.82)";
-            navbar.style.borderBottomColor = isLight ? "rgba(0, 0, 0, 0.08)" : "rgba(255, 255, 255, 0.08)";
+            navbar.style.background = isLight ? "rgba(255, 255, 255, 0.88)" : "rgba(7, 7, 10, 0.82)";
+            navbar.style.borderBottomColor = isLight ? "rgba(147, 197, 253, 0.4)" : "rgba(255, 255, 255, 0.08)";
         }
     }
 
@@ -114,6 +115,71 @@ document.addEventListener("DOMContentLoaded", () => {
         updateActiveNav();
         updateNavbar();
     }, { passive: true });
+
+    /* ================= FLOATING AMBIENT GLOWING PARTICLES CANVAS (VAKTA STYLE) ================= */
+    const ambientCanvas = document.getElementById("ambientCanvas");
+    if (ambientCanvas) {
+        const ambientCtx = ambientCanvas.getContext("2d");
+        let bubbles = [];
+
+        function initBubbles() {
+            ambientCanvas.width = window.innerWidth;
+            ambientCanvas.height = window.innerHeight;
+            bubbles = [];
+            const count = Math.max(35, Math.floor(window.innerWidth / 28)); // ~40-60 glowing particles
+            for (let i = 0; i < count; i++) {
+                bubbles.push({
+                    x: Math.random() * ambientCanvas.width,
+                    y: Math.random() * ambientCanvas.height,
+                    radius: Math.random() * 2.8 + 1.2,
+                    speedY: Math.random() * 0.45 + 0.16,
+                    speedX: (Math.random() - 0.5) * 0.25,
+                    alpha: Math.random() * 0.5 + 0.2,
+                    pulseSpeed: Math.random() * 0.02 + 0.01
+                });
+            }
+        }
+
+        window.addEventListener("resize", initBubbles, { passive: true });
+        initBubbles();
+
+        function renderBubblesLoop() {
+            ambientCtx.clearRect(0, 0, ambientCanvas.width, ambientCanvas.height);
+            const isDark = document.documentElement.getAttribute("data-theme") !== "light";
+
+            for (let i = 0; i < bubbles.length; i++) {
+                const b = bubbles[i];
+                b.y -= b.speedY;
+                b.x += b.speedX;
+                b.alpha += Math.sin(Date.now() * b.pulseSpeed) * 0.005;
+
+                if (b.y < -15) {
+                    b.y = ambientCanvas.height + 15;
+                    b.x = Math.random() * ambientCanvas.width;
+                }
+                if (b.x < -10) b.x = ambientCanvas.width + 10;
+                if (b.x > ambientCanvas.width + 10) b.x = -10;
+
+                const safeAlpha = Math.max(0.12, Math.min(0.75, b.alpha));
+
+                ambientCtx.beginPath();
+                ambientCtx.arc(b.x, b.y, b.radius, 0, Math.PI * 2);
+                if (isDark) {
+                    ambientCtx.fillStyle = `rgba(214, 173, 96, ${safeAlpha * 0.75})`;
+                    ambientCtx.shadowBlur = 6;
+                    ambientCtx.shadowColor = "rgba(214, 173, 96, 0.45)";
+                } else {
+                    ambientCtx.fillStyle = `rgba(56, 189, 248, ${safeAlpha})`;
+                    ambientCtx.shadowBlur = 7;
+                    ambientCtx.shadowColor = "rgba(14, 165, 233, 0.45)";
+                }
+                ambientCtx.fill();
+                ambientCtx.shadowBlur = 0;
+            }
+            requestAnimationFrame(renderBubblesLoop);
+        }
+        renderBubblesLoop();
+    }
 
     /* ================= TOAST NOTIFICATION UTILITY ================= */
     function showToast(message, isSuccess = true) {
