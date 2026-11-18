@@ -138,18 +138,6 @@ body.light-theme .nav-button:hover {
     color: #ffffff !important;
 }
 
-:root[data-theme="light"] .cyber-orbit-ring,
-body.light-theme .cyber-orbit-ring {
-    border-color: #0284c7;
-    box-shadow: 0 0 25px rgba(14, 165, 233, 0.5), 0 0 50px rgba(14, 165, 233, 0.3);
-    opacity: 0.85;
-}
-
-:root[data-theme="light"] .cyber-orbit-ring::before,
-body.light-theme .cyber-orbit-ring::before {
-    border-color: rgba(14, 165, 233, 0.6);
-    box-shadow: 0 0 15px rgba(14, 165, 233, 0.35);
-}
 
 :root[data-theme="light"] .cyber-floating-icon,
 body.light-theme .cyber-floating-icon {
@@ -1243,80 +1231,8 @@ body.light-theme .p-filter-btn.active {
     padding: 20px 10px;
 }
 
-/* 3D CYBER ORBIT RING (HALO WRAPPING AROUND TABLET) */
 .cyber-orbit-ring {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 122%;
-    height: 120px;
-    transform: translate(-50%, -50%) rotateX(66deg) rotateY(-14deg) rotateZ(16deg);
-    border: 3px solid var(--gold);
-    border-radius: 50%;
-    box-shadow:
-        0 0 25px var(--gold),
-        0 0 55px var(--gold-glow),
-        0 0 95px rgba(0, 245, 196, 0.35),
-        inset 0 0 30px var(--gold-glow);
-    pointer-events: none;
-    z-index: 4;
-    opacity: 0.95;
-    animation: cyber3DOrbitPulse 4.5s ease-in-out infinite alternate;
-}
-
-.cyber-orbit-ring::before {
-    content: '';
-    position: absolute;
-    top: -6px;
-    left: -6px;
-    right: -6px;
-    bottom: -6px;
-    border-radius: 50%;
-    border: 1.5px dashed rgba(0, 245, 196, 0.6);
-    box-shadow: 0 0 18px rgba(0, 245, 196, 0.4);
-    animation: cyberRingSpin 16s linear infinite;
-}
-
-.project-feature.reverse .cyber-orbit-ring {
-    transform: translate(-50%, -50%) rotateX(66deg) rotateY(14deg) rotateZ(-16deg);
-    animation-name: cyber3DOrbitPulseReverse;
-}
-
-@keyframes cyber3DOrbitPulse {
-    0% {
-        transform: translate(-50%, -50%) rotateX(66deg) rotateY(-14deg) rotateZ(16deg) scale(0.96);
-        opacity: 0.8;
-    }
-    100% {
-        transform: translate(-50%, -50%) rotateX(66deg) rotateY(-14deg) rotateZ(16deg) scale(1.04);
-        opacity: 1;
-        box-shadow:
-            0 0 35px var(--gold),
-            0 0 75px var(--gold-glow),
-            0 0 120px rgba(0, 245, 196, 0.45),
-            inset 0 0 40px var(--gold);
-    }
-}
-
-@keyframes cyber3DOrbitPulseReverse {
-    0% {
-        transform: translate(-50%, -50%) rotateX(66deg) rotateY(14deg) rotateZ(-16deg) scale(0.96);
-        opacity: 0.8;
-    }
-    100% {
-        transform: translate(-50%, -50%) rotateX(66deg) rotateY(14deg) rotateZ(-16deg) scale(1.04);
-        opacity: 1;
-        box-shadow:
-            0 0 35px var(--gold),
-            0 0 75px var(--gold-glow),
-            0 0 120px rgba(0, 245, 196, 0.45),
-            inset 0 0 40px var(--gold);
-    }
-}
-
-@keyframes cyberRingSpin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    display: none !important;
 }
 
 /* 3D FLOATING TECH TILES / ICONS */
@@ -2927,12 +2843,6 @@ dialog.gallery-modal::backdrop {
         max-width: 100%;
     }
 
-    .cyber-orbit-ring,
-    .project-feature.reverse .cyber-orbit-ring {
-        width: 108%;
-        height: 85px;
-        transform: translate(-50%, -50%) rotateX(66deg) rotateY(-6deg) rotateZ(10deg) !important;
-    }
 
     .cyber-pedestal-platform {
         width: 105%;
